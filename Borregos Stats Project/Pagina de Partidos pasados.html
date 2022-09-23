@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Last Games</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+    <script>
+        var equipos = ["UDEM", "CEU", "UNI", "Tec Saltillo"];
+        var LG = ["UDEM.jpeg", "CEU.jpeg", "UNI.jpeg", "Tec Saltillo.jpeg"];
+        position = 0;
+
+        function num() {
+            //acuerdate de cambiar tus variables cuando tengas las fotos.
+            var showImg = document.getElementById("myImage");
+            var team = document.getElementById("input1").value;
+            var find = false;
+            for (var i = 0; i < equipos.length; i++) {
+                if (equipos[i].localeCompare(team) == 0) {
+                    find = true;
+                    position = i;
+
+                }
+            }
+            if (find == true) {
+                showImg.src = LG[position];
+
+
+            } else {
+                alert("Team not found");
+            }
+
+        }
+
+        function display() {
+            var F = "";
+            for (var i = 0; i < equipos.length; i++) {
+                F = (F + equipos[i] + "<br>");
+
+            }
+            document.getElementById("answerBox2").innerHTML = "Options:" +
+                "<Br/>" + "<Br/>" +
+                F;
+        }
+    </script>
+
+</head>
+
+<body onload="display()">
+    <div class="all">
+        <div class="twothirds">
+            <div class="header">
+                <h1 class="title"> Borregos </h1>
+                <img src="borrego-whitebg-1600.png" alt="Logo" width="160px" height="150px">
+            </div>
+
+         
+                <div class="menuHolder">
+                    <a class="button" href="Pagina Principal.html">Home</a>
+            <a class="button" href="Pagina de Estadistica.html">Stats</a>
+            <a class="button" href="Pagina Hall of Fame.html">Hall Of Fame</a>
+            <a class="button" href="Pagina de Partidos pasados.html">Past Games</a>
+            <a class="button" href="Pagina de contactos.html">Contact us</a>
+                </div>
+         
+            <div class="mainTitle" id="project">
+                Past Games </div>
+            <div class="container" id="answerBox">
+                <img id="myImage" height="660" width="820">
+
+            </div>
+        </div>
+
+        <div class="informacion">
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+            <div class="invisible"></div>
+          
+            <div class="input-div" style="margin-top:200px">
+                <label class="margins">Last Games</label>
+            </div>
+
+            <div>
+                <input type="text" id="input1" class="margins">
+            </div>
+
+            
+
+            <div>
+                <button class="agregar margins" onClick="num()"> Search </button>
+            </div>
+
+
+            <div class="containers2" id=answerBox2>
+                <h1>Options:</h1>
+            </div>
+            
+        </div>
+
+
+
+
+    </div>
+</body>
+
+</html>

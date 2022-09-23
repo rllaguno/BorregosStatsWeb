@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hall Of Fame</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+    <script>
+        var J = "Juan Pablo Barud or better known as Jp. Besides having a great academic record, he has been one of the only rookies to go to CONADEIP with the senior team. He has aswell set a very good amount of 3 pointers with the team. He as well has a great hussle activity on court.";
+        var D = "Daniel Gutiérrez Jaime, also known as James. Has been part of and still is of Borregos for his whole highschool career. He has taken the team to a whole new level defensivly and offensivly. Since his first day at Borregos, he has given his 100%, to acheive the team goal which is passing to CONADEIP. As a rookie he had very low expectations, since he did not accept the athletic scholarship. Besides all this he has been the only member of the team to win an all star position in international tournaments. He has as well gotten many trophies nationally and internationally.";
+        var R = "Roberto Tejeda, better known as Morro or Tejada, was the team leader for some seasons. However, due to some categorie issues he could not play with the team last year. He has a great defensive ability, besides he has been the shortest starter ever registered. His most valuable atribute was his team leadership and strength.";
+        var G = "Gerardo Guajardo, better known As Henrry or Tenders, was the big man in the post and when things got tough he did not get scared. He had a lot of commitment on and off the court and never gave up, no matter the situation. ";
+
+        var Names = ["Daniel Gtz", "JP Barud", "Roberto Tejeda", "Gerardo Guajardo"];
+        var description = [D, J, R, G];
+        var Fotos = ["James.jpeg", "Juan.jpeg", "Morro.jpeg", "Jerry.jpeg"];
+        var position = 0;
+
+
+
+
+        function HF() {
+            var mostrar = document.getElementById("myImage");
+            var encontrar = document.getElementById("input1").value;
+            var find = false;
+            for (var i = 0; i < Names.length; i++) {
+                if (Names[i].localeCompare(encontrar) == 0) {
+                    find = true;
+                    position = i;
+                }
+            }
+            if (find == true) {
+                mostrar.src = Fotos[position];
+                document.getElementById("answerBox").innerHTML = description[position];
+            } else {
+                alert("not found");
+            }
+
+        }
+
+        function display() {
+            var h = "";
+            for (var i = 0; i < Names.length; i++) {
+                h = (h + Names[i] + "<br>");
+
+            }
+            document.getElementById("answerBox2").innerHTML = h;
+        }
+    </script>
+
+</head>
+
+<body onload="display()">
+    <div class="all">
+        <div class="twothirds">
+            <div class="header">
+                <h1 class="title"> Borregos </h1>
+                <img src="borrego-whitebg-1600.png" alt="Logo" width="160px" height="150px">
+            </div>
+
+            <div class="menu"></div>
+                <div class="menuHolder">
+                    <a class="button" href="Pagina Principal.html">Home</a>
+            <a class="button" href="Pagina de Estadistica.html">Stats</a>
+            <a class="button" href="Pagina Hall of Fame.html">Hall Of Fame</a>
+            <a class="button" href="Pagina de Partidos pasados.html">Past Games</a>
+            <a class="button" href="Pagina de contactos.html">Contact us</a>
+                </div>
+            
+            <div class="mainTitle" id="project">
+                Hall of Fame
+            </div>
+            
+            <div class="containers" id=answerBox>
+                <h1>About Him:</h1>
+            </div>
+
+            <div class="containersPhoto" id=answerBox1>
+
+                <h1>Photo:</h1>
+                <img id="myImage" height="250" width="250">
+            </div>
+
+            <div class="containersNames" id=answerBox2>
+                <h1> Options:</h1>
+            </div>
+
+        </div>
+
+        <div class="informacion">
+
+        <div class="glass">
+            <div class="inputs-div" >
+                <label class="margins3">Name</label>
+            </div>
+
+            <div>
+                <input type="text" id="input1" class="margins3">
+            </div>
+
+            <div>
+                <button class="agregar margins3" onClick="HF()"> Look Up </button>
+            </div>
+        
+        </div>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>

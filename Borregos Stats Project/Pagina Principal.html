@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Borregos</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+    <script>
+
+        function login() {
+          var data1 = document.getElementById("data1").value;
+          var data2 = document.getElementById("data2").value;
+          if(data1 == "JamesLlaguno" && data2 == "jl12"){
+              alert("Logged in.")
+          } else{
+            alert("Username not found.")
+          }
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="title"> Borregos </h1>
+        <img src="borrego-whitebg-1600.png" alt="Logo" width="160px" height="150px">
+
+
+        <div class="login">
+            <div class="inputs-div" >
+                <label class="margins10">Username and Password:</label>
+            </div>
+            
+
+            <div>
+                <input type="text" id="data1" class="marginspass"> 
+                <input type="text" id="data2" class="marginspass1">
+            </div>
+
+            <div>
+                <button class="agregarlogin margins3" onClick="login()"> Log In </button>
+            </div>
+        
+        </div>
+
+
+    </div>
+
+    
+        <div class="menuHolder">
+            <a class="buttondif" href="Pagina Principal.html">Home</a>
+            <a class="button" href="Pagina de Estadistica.html">Stats</a>
+            <a class="button" href="Pagina Hall of Fame.html">Hall Of Fame</a>
+            <a class="button" href="Pagina de Partidos pasados.html">Past Games</a>
+            <a class="button" href="Pagina de contactos.html">Contact us</a>
+        </div>
+ 
+
+
+    <div class="all">
+        <div class="twothirds">
+
+        </div>
+    </div>
+    <div class="para ">
+        <h2> On this page your going to find many things about the basketball team Borregos. This team is located in Monterrey, Mexico. They represent the School, Tecnologico de Monterrey. This page will contain many of their statistics of games. As well as
+            there Hall of Fame Players that had played for them through the years. This page is also used by the Borrgos coaches to take statistics when they play. Hope you enjoy all this content.
+        </h2>
+        <img src="Team.jpeg " alt="Equipo intro " with="800 " height="315 ">
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FBorregosMonterrey%2Fvideos%2F513839289291106%2F&show_text=0&width=560 " width="580 " height="315 " style="border:none;overflow:hidden " scrolling="no
+                " frameborder="0 " allowTransparency="true " allowFullScreen="true "></iframe>
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ftododebasquetbol%2Fvideos%2F3056796667878958%2F&show_text=0&width=560 " width="560 " height="314 " style="border:none;overflow:hidden " scrolling="no
+                " frameborder="0 " allowTransparency="true " allowFullScreen="true "></iframe>
+    </div>
+
+
+
+
+</body>
+
+</html>

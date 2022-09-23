@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stats</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+    <script>
+        var names = [];
+        var shots1 = [];
+        var shots2 = [];
+        var rebounds = [];
+        var assists = [];
+        var steals = [];
+
+
+        function display() {
+            var myText = "";
+            for (var i = 0; i < names.length; i++) {
+                myText = myText +
+                    "<tr>" +
+                    "<td>" + names[i] + "</td>" +
+                    "<td>" + shots1[i] + "</td>" +
+                    "<td>" + shots2[i] + "</td>" +
+                    "<td>" + rebounds[i] + "</td>" +
+                    "<td>" + assists[i] + "</td>" +
+                    "<td>" + steals[i] + "</td>" +
+                    "</tr>"
+            }
+            document.getElementById("myTable").innerHTML = myText;
+        }
+
+
+        function add() {
+
+            var name = document.getElementById("data1").value;
+            var shot1 = parseInt(document.getElementById("data2").value);
+            var shot2 = parseInt(document.getElementById("data3").value);
+            var rebound = parseInt(document.getElementById("data4").value);
+            var assist = parseInt(document.getElementById("data5").value);
+            var steal = parseInt(document.getElementById("data6").value);
+
+            names.push(name);
+            shots1.push(shot1);
+            shots2.push(shot2);
+            rebounds.push(rebound);
+            assists.push(assist);
+            steals.push(steal);
+
+            display();
+        }
+
+
+        function remove() {
+            var name = document.getElementById("data1").value.trim();
+            var find = false;
+            for (var i = 0; i < names.length; i++) {
+                if (name == names[i]) {
+                    find = true;
+                    names.splice(i, 1);
+                    shots1.splice(i, 1)
+                    shots2.splice(i, 1);
+                    rebounds.splice(i, 1)
+                    assists.splice(i, 1);
+                    steals.splice(i, 1)
+
+                    alert("Player was erased.");
+                }
+            }
+            if (find == false) {
+                alert("Player not found");
+            }
+            display();
+
+        }
+
+        function change() {
+            var name = document.getElementById("data1").value;
+            var shot1 = parseInt(document.getElementById("data2").value);
+            var shot2 = parseInt(document.getElementById("data3").value);
+            var rebound = parseInt(document.getElementById("data4").value);
+            var assist = parseInt(document.getElementById("data5").value);
+            var steal = parseInt(document.getElementById("data6").value);
+            var find = false;
+            for (var i = 0; i < names.length; i++) {
+                if (name == names[i]) {
+                    find = true;
+                    shots1[i] = shot1;
+                    shots2[i] = shot2;
+                    rebounds[i] = rebound;
+                    assists[i] = assist;
+                    steals[i] = steal;
+
+                    alert("Player info was changed");
+                }
+               
+
+            }
+            if (find == false) {
+                    alert("Player not found")
+                }
+
+            display();
+        }
+
+        function avg() {
+            var myText = "";
+            var start1 = 0;
+            var start2 = 0;
+            var start3 = 0;
+            var start4 = 0;
+            var start5 = 0;
+            for (var i = 0; i < shots1.length; i++) {
+                var start1 = start1 + shots1[i];
+            }
+            start1 = start1 / (shots1.length);
+
+            for (var i = 0; i < shots2.length; i++) {
+                var start2 = start2 + shots2[i];
+            }
+            start2 = start2 / (shots2.length);
+
+            for (var i = 0; i < rebounds.length; i++) {
+                var start3 = start3 + rebounds[i];
+            }
+            start3 = start3 / (rebounds.length);
+
+            for (var i = 0; i < assists.length; i++) {
+                var start4 = start4 + assists[i];
+            }
+            start4 = start4 / (assists.length);
+
+            for (var i = 0; i < steals.length; i++) {
+                var start5 = start5 + steals[i];
+            }
+            start5 = start5 / (steals.length);
+
+            myText = myText +
+                "<tr>" +
+                "<td>" + "Avg" + "</td>" +
+                "<td>" + "    " + start1 + "    " + "</td>" +
+                "<td>" + "    " + "    " + "</td>" +
+                "<td>" + "    " + start2 + "    " + "</td>" +
+                "<td>" + "    " + start3 + "    " + "</td>" +
+                "<td>" + "    " + start4 + "    " + "</td>" +
+                "<td>" + "    " + start5 + "    " + "</td>" +
+                "</tr>"
+
+            document.getElementById("answerBox").innerHTML = myText;
+
+        }
+
+        function percent() {
+            var name = document.getElementById("data1").value.trim();
+            var find = false;
+            for (var i = 0; i < names.length; i++) {
+                if (name == names[i]) {
+                    find = true;
+                    var shot1 = shots1[i];
+                    var shot2 = shots2[i];
+                    var avg = shot2 / shot1;
+                    avg = avg * 100;
+                }
+
+
+            }
+            document.getElementById("minianswerBox").innerHTML = avg + "%";
+        }
+
+        function totalplayers() {
+            document.getElementById("minianswerBox").innerHTML = names.length;
+        }
+
+        function totalrebounds() {
+            var total = 0;
+            for (var i = 0; i < rebounds.length; i++) {
+                total = total + rebounds[i];
+            }
+            document.getElementById("minianswerBox").innerHTML = total;
+        }
+
+        function totalassists() {
+            var total = 0;
+            for (var i = 0; i < assists.length; i++) {
+                total = total + assists[i];
+            }
+            document.getElementById("minianswerBox").innerHTML = total;
+        }
+
+        function totalsteals() {
+            var total = 0;
+            for (var i = 0; i < steals.length; i++) {
+                total = total + steals[i];
+            }
+            document.getElementById("minianswerBox").innerHTML = total;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="all">
+        <div class="twothirds">
+            <div class="header">
+                <h1 class="title"> Borregos </h1>
+                <img src="borrego-whitebg-1600.png" alt="Logo" width="160px" height="150px">
+            </div>
+
+            
+                <div class="menuHolder">
+                    <a class="button" href="Pagina Principal.html">Home</a>
+                    <a class="button" href="Pagina de Estadistica.html">Stats</a>
+                    <a class="button" href="Pagina Hall of Fame.html">Hall Of Fame</a>
+                    <a class="button" href="Pagina de Partidos pasados.html">Past Games</a>
+                    <a class="button" href="Pagina de contactos.html">Contact us</a>
+                
+            </div>
+            <div class="invisible"> </div>
+            <div class="mainTitle" id="project">
+                Borregos Statistics Manager
+            </div>
+            <div class="container">
+                <h1>Player Statistics</h1>
+                <table style="color:black">
+                    <tr style="color:black">
+                        <th style="color:black">Name</th>
+                        <th style="color:black"># Shots</th>
+                        <th style="color:black">Shots Made</th>
+                        <th style="color:black">Rebounds</th>
+                        <th style="color:black">Assists</th>
+                        <th style="color:black">Steals</th>
+
+                    </tr>
+                </table>
+
+                <table style="color:black" id="myTable">
+                    <tr style="color:black">
+                        <td style="color:black"></td>
+                        <td style="color:black"></td>
+                        <td style="color:black"></td>
+                        <td style="color:black"></td>
+                        <td style="color:black"></td>
+                        <td style="color:black"></td>
+
+                    </tr>
+                </table>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="informacion">
+
+            <div class="invisible1"> </div>
+            <div class="input-div" style="margin-top:200px">
+                <label class="margins1"> Player Name</label>
+                <input type="text" id="data1" class="margins1 ">
+
+            </div>
+
+
+            <div class="input-div">
+                <label class="margins1"> # Shots </label>
+                <input type="text" id="data2" class="margins1">
+
+            </div>
+
+            <div class="input-div">
+                <label class="margins1"> Shots Made</label>
+                <input type="text" id="data3" class="margins1">
+
+            </div>
+
+            <div class="input-div" onClick="add()">
+                <button class="agregaradd "> Add Player</button>
+            </div>
+
+            <div class="input-div">
+                <label class="margins1"> Rebounds</label>
+                <input type="text" id="data4" class="margins1">
+
+            </div>
+
+            <div class="input-div">
+                <label class="margins1"> Assists</label>
+                <input type="text" id="data5" class="margins1">
+
+            </div>
+
+            <div class="input-div">
+                <label class="margins1"> Steals</label>
+                <input type="text" id="data6" class="margins1">
+
+            </div>
+
+
+
+
+
+            <div class="input-div" onClick="remove()">
+                <button class="agregar1 margins2"> Remove Player </button>
+            </div>
+
+            <div class="input-div" onClick="change()">
+                <button class="agregar1 margins2"> Change Player Info </button>
+            </div>
+
+
+            <div class="input-div" onClick="avg()">
+                <button class="agregar1 margins2"> Avg Data  </button>
+            </div>
+
+            <div class="input-div" onClick="percent()">
+                <button class="agregar1 margins2"> % of Shots Made </button>
+            </div>
+
+            <div class="input-div" onClick="totalplayers()">
+                <button class="agregar1 margins2"> Total Players </button>
+            </div>
+
+            <div class="input-div" onClick="totalrebounds()">
+                <button class="agregar1 margins2"> Total Rebounds </button>
+            </div>
+            <div class="input-div" onClick="totalassists()">
+                <button class="agregar1 margins2"> Total Assists </button>
+            </div>
+            <div class="input-div" onClick="totalsteals()">
+                <button class="agregar1 margins2"> Total Steals </button>
+            </div>
+
+
+
+            <div class="invisible1"></div>
+            <div class="answerBox1" id="answerBox">
+
+                <table style="color:black" id="myTable">
+                    <tr style="color:black">
+                        <td style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Avg</td>
+                        <td style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0</td>
+                        <td style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0</td>
+                        <td style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0</td>
+                        <td style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0</td>
+                        <td style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">0</td>
+
+                    </tr>
+                </table>
+            </div>
+
+            <div class="minianswerBox" id="minianswerBox">
+                0
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+</body>
+
+</html>
